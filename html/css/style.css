@@ -1,0 +1,992 @@
+:root {
+  --main-clr: blue;
+
+  --ui-background: linear-gradient(
+    152deg,
+    rgba(0, 14, 31, 0.824) 0%,
+    rgba(0, 3, 25, 0.902) 100%
+  );
+  --li-background: rgba(1, 11, 100, 0.681);
+  --box-background: rgba(3, 32, 76, 0.66);
+
+  --button-background: rgba(0, 0, 191, 0.397);
+  --hover-background: rgba(0, 0, 218, 0.397);
+  --hover-txt-shadow: rgb(0, 225, 255);
+
+  --pin-color: rgb(0, 102, 255);
+
+  --inventory-background: rgba(2, 29, 60, 0.824);
+  --inventory-box-background: rgba(1, 4, 56, 0.76);
+  --inventory-itemcount-background: rgba(54, 66, 136, 0.732);
+  --inventory-settings-background: rgb(2, 0, 65);
+  --inventory-button-background: rgba(0, 4, 255, 0.473);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.buymenu {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 65vw;
+  height: 44vw;
+  background: var(--ui-background);
+  border-bottom: 0.15vw solid var(--main-clr);
+}
+
+.buymenu .headlinecont {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-weight: 700;
+  font-size: 1.4vw;
+  top: 1.5vw;
+  text-transform: uppercase;
+}
+
+.buymenu ul {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 6vw;
+}
+
+.buymenu li {
+  list-style: none;
+  padding-left: 3.9vw;
+  padding-right: 3.9vw;
+  padding-top: 1.2vw;
+  padding-bottom: 1.2vw;
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+  color: rgba(255, 255, 255, 0.293);
+  text-transform: uppercase;
+  font-weight: 600;
+  background-color: var(--li-background);
+  cursor: pointer;
+}
+
+li:hover {
+  transform: scale(105%);
+  filter: drop-shadow(0 0 0.2vw var(--main-clr));
+  color: white;
+}
+
+.buymenu .mainpage {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 53vw;
+  height: 31vw;
+  top: 12vw;
+}
+
+.buypage .boxcont {
+  position: absolute;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.boxcont .box {
+  position: relative;
+  margin: 0.5vw;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  background-color: var(--box-background);
+}
+
+.box img {
+  padding: 0.5vw;
+  padding-top: 1vw;
+  width: 85%;
+  margin: 0 auto;
+}
+
+.box .informationheadline {
+  margin-top: 0.5vw;
+  margin-bottom: 0.5vw;
+  margin-left: 0.5vw;
+  font-weight: 600;
+  text-align: left;
+  color: rgba(153, 153, 153, 0.847);
+}
+
+.box .lagerbox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 93%;
+  margin: 0 auto;
+  margin-bottom: 1vw;
+  margin-top: 0.5vw;
+  font-weight: 700;
+}
+
+.box .preisbox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 93%;
+  margin: 0 auto;
+  margin-bottom: 1.2vw;
+  font-weight: 700;
+  color: rgb(0, 210, 0);
+}
+
+.box .aktionenheadline {
+  margin-bottom: 0.5vw;
+  margin-left: 0.6vw;
+  font-weight: 600;
+  text-align: left;
+  color: rgba(153, 153, 153, 0.847);
+}
+
+.box button {
+  margin: 0 auto;
+  margin-top: 0.3vw;
+  margin-bottom: 0.7vw;
+  padding: 0.7vw;
+  width: 93%;
+  text-transform: uppercase;
+  outline: none;
+  background-color: var(--button-background);
+  border: 0.15vw solid var(--main-clr);
+  color: rgba(255, 255, 255, 0.489);
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  transition: 0.05s;
+}
+
+.box button:hover {
+  color: white;
+  text-shadow: 0 0 1vw var(--hover-txt-shadow);
+  background-color: var(--hover-background);
+}
+
+.lager {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  border-left: 2px solid var(--main-clr);
+  border-right: 2px solid var(--main-clr);
+  padding-left: 3vw;
+  padding-right: 3vw;
+}
+
+.lager img {
+  width: 90%;
+  margin: 0 auto;
+  border: 0.15vw solid var(--main-clr);
+  filter: drop-shadow(0 0 0.2vw var(--main-clr));
+}
+
+.lager .headline {
+  position: relative;
+  color: white;
+  margin: 0 auto;
+  top: 0.9vw;
+  font-size: 1.2vw;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.lager .preisbox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-top: 2.2vw;
+  margin-bottom: 1.2vw;
+  font-weight: 700;
+  color: rgb(0, 210, 0);
+  text-transform: uppercase;
+}
+
+.lager input {
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  padding: 0.5vw;
+  width: 9vw;
+  margin: 0 auto;
+  background-color: rgba(110, 110, 110, 0.267);
+  color: white;
+  border: none;
+}
+
+.lager input::placeholder {
+  color: rgba(255, 255, 255, 0.525);
+  text-transform: uppercase;
+}
+
+.lager button {
+  padding: 1vw;
+  width: 17vw;
+  margin: 0 auto;
+  margin-top: 2vw;
+  outline: none;
+  color: rgba(255, 255, 255, 0.489);
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: var(--button-background);
+  border: 0.15vw solid var(--main-clr);
+  font-family: "Montserrat", sans-serif;
+  transition: 0.05s;
+  cursor: pointer;
+}
+
+.lager button:hover {
+  color: white;
+  text-shadow: 0 0 1vw var(--hover-txt-shadow);
+  background-color: var(--hover-background);
+}
+
+.success .page {
+  position: absolute;
+  width: 40vw;
+  height: 20vw;
+  display: flex;
+  flex-direction: column;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: 700;
+}
+
+.success .headline {
+  margin: 0 auto;
+  color: rgb(0, 210, 0);
+  text-shadow: 0 0 1vw rgb(0, 210, 0);
+  font-size: 2vw;
+  text-transform: uppercase;
+}
+
+.success .info {
+  color: rgba(255, 255, 255, 0.444);
+  margin: 0 auto;
+  margin-top: 0.5vw;
+  margin-bottom: 2vw;
+}
+
+.buttoncont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success button {
+  padding: 1.1vw;
+  width: 13vw;
+  color: rgba(255, 255, 255, 0.489);
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: var(--button-background);
+  border: 0.15vw solid var(--main-clr);
+  font-family: "Montserrat", sans-serif;
+  transition: 0.05s;
+  cursor: pointer;
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+
+.success button:hover {
+  color: white;
+  text-shadow: 0 0 1vw var(--hover-txt-shadow);
+  background-color: var(--hover-background);
+}
+
+.loginpage .page {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 93%;
+}
+
+.loginpage .headline {
+  color: white;
+  margin: 0 auto;
+  font-weight: 700;
+  font-size: 1.2vw;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 0.5vw;
+  text-decoration-color: var(--main-clr);
+}
+
+.loginpage .verwaltentxt {
+  color: rgba(255, 255, 255, 0.402);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 2vw;
+}
+
+.loginpage .boxconte {
+  height: 24vw;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  overflow-y: auto;
+  flex-wrap: wrap;
+}
+
+.boxconte .boxx {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 2px solid var(--main-clr);
+  height: 8vw;
+  margin-top: 1vw;
+  background-color: var(--box-background);
+}
+
+.boxconte .boxx img {
+  width: 20%;
+  margin: auto 0;
+}
+
+.boxx .boxbox {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-weight: 700;
+}
+
+.boxbox .lagertxt {
+  color: rgba(255, 255, 255, 0.314);
+  text-transform: uppercase;
+}
+
+.boxbox .boxtxt {
+  text-transform: uppercase;
+}
+
+.buttonbox button {
+  font-family: "Montserrat", sans-serif;
+  padding: 0.5vw;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.489);
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: var(--button-background);
+  border: 0.12vw solid var(--main-clr);
+  cursor: pointer;
+  margin-left: 0.8vw;
+}
+
+.buttonbox button:hover {
+  color: white;
+  text-shadow: 0 0 1vw var(--hover-txt-shadow);
+  background-color: var(--hover-background);
+}
+
+.buttonbox {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  font-weight: 700;
+}
+
+.verwaltenpage .page {
+  position: absolute;
+  width: 95%;
+  height: 92%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+}
+
+.verwaltenpage .headline {
+  color: white;
+  font-size: 1.4vw;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0 auto;
+  margin-bottom: 1vw;
+  text-decoration: underline;
+  text-decoration-color: var(--main-clr);
+  text-underline-offset: 0.7vw;
+}
+
+.page .lagerbox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.416);
+  width: 20vw;
+  margin: 0 auto;
+  margin-top: 2vw;
+  font-size: 1vw;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.lagerbox .lagerprice {
+  color: rgb(0, 210, 0);
+}
+
+.page .lagerpin {
+  color: var(--pin-color);
+  text-transform: uppercase;
+  margin: 0 auto;
+  margin-top: 2vw;
+  margin-bottom: 1vw;
+  font-weight: 700;
+  font-size: 1.3vw;
+}
+
+.page .lagersell {
+  color: rgb(255, 0, 0);
+  text-transform: uppercase;
+  margin: 0 auto;
+  margin-top: 2vw;
+  margin-bottom: 1vw;
+  font-weight: 700;
+  font-size: 1.3vw;
+}
+
+.lagerbox .lagername {
+  color: rgba(255, 255, 255, 0.685);
+}
+
+.page input {
+  background-color: rgba(110, 110, 110, 0.267);
+  border: none;
+  margin: 0 auto;
+  margin-top: 0.5vw;
+  margin-bottom: 0.5vw;
+  padding: 1vw;
+  width: 18vw;
+  text-align: center;
+  font-weight: 700;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+
+.page input::placeholder {
+  text-transform: uppercase;
+}
+
+.page .changecont {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.changecont .sellpricetxt {
+  display: flex;
+  justify-content: space-between;
+  padding: 1vw;
+  background-color: rgba(110, 110, 110, 0.267);
+  color: rgba(255, 255, 255, 0.483);
+  font-weight: 400;
+  margin-top: 0.5vw;
+  margin-bottom: 0.5vw;
+  width: 18vw;
+  white-space: nowrap;
+}
+
+.changecont .pin {
+  display: flex;
+  flex-direction: column;
+}
+
+.changecont .sell {
+  display: flex;
+  flex-direction: column;
+}
+
+.changebtn {
+  font-family: "Montserrat", sans-serif;
+  padding: 1vw;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.489);
+  font-weight: 700;
+  text-transform: uppercase;
+  width: 17vw;
+  margin: 0 auto;
+  margin-top: 0.5vw;
+  background-color: var(--button-background);
+  border: 0.12vw solid var(--main-clr);
+  cursor: pointer;
+}
+
+.changebtn:hover {
+  color: white;
+  text-shadow: 0 0 1vw var(--hover-txt-shadow);
+  background-color: var(--hover-background);
+}
+
+.sellbtn {
+  font-family: "Montserrat", sans-serif;
+  padding: 1vw;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.489);
+  font-weight: 700;
+  text-transform: uppercase;
+  width: 17vw;
+  margin: 0 auto;
+  margin-top: 0.5vw;
+  background-color: rgba(191, 0, 0, 0.397);
+  border: 0.12vw solid rgb(255, 0, 0);
+  cursor: pointer;
+}
+
+.sellbtn:hover {
+  color: white;
+  text-shadow: 0 0 1vw rgb(255, 0, 0);
+  background-color: rgba(218, 0, 0, 0.397);
+}
+
+.betre {
+  position: absolute;
+  width: 50vw;
+  height: 20vw;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+}
+
+.betre .headline {
+  color: white;
+  margin: 0 auto;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1.4vw;
+  text-decoration: underline;
+  text-decoration-color: var(--main-clr);
+  text-underline-offset: 0.7vw;
+}
+
+.betre .info {
+  color: rgba(255, 255, 255, 0.398);
+  text-align: center;
+  font-weight: 600;
+  width: 25vw;
+  margin: 0 auto;
+  margin-top: 1.2vw;
+}
+
+.betre input {
+  background-color: rgba(110, 110, 110, 0.267);
+  border: none;
+  margin: 0 auto;
+  margin-top: 2vw;
+  margin-bottom: 0.5vw;
+  padding: 1vw;
+  width: 18vw;
+  text-align: center;
+  font-weight: 700;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+
+.betre input::placeholder {
+  text-transform: uppercase;
+}
+
+.betre button {
+  font-family: "Montserrat", sans-serif;
+  padding: 1vw;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.489);
+  font-weight: 700;
+  text-transform: uppercase;
+  width: 17vw;
+  margin: 0 auto;
+  margin-top: 1vw;
+  background-color: var(--button-background);
+  border: 0.12vw solid var(--main-clr);
+  cursor: pointer;
+}
+
+.betre button:hover {
+  color: white;
+  text-shadow: 0 0 1vw var(--hover-txt-shadow);
+  background-color: var(--hover-background);
+}
+
+.loader {
+  display: none;
+  color: var(--main-clr);
+  font-size: 45px;
+  text-indent: -9999em;
+  overflow: hidden;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateZ(0) translate(-50%, -50%);
+  animation: mltShdSpin 1.7s infinite ease, round 1.7s infinite ease;
+}
+
+@keyframes mltShdSpin {
+  0% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  5%,
+  95% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  10%,
+  59% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em,
+      -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em,
+      -0.297em -0.775em 0 -0.477em;
+  }
+  20% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em,
+      -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em,
+      -0.749em -0.34em 0 -0.477em;
+  }
+  38% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em,
+      -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em,
+      -0.82em -0.09em 0 -0.477em;
+  }
+  100% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+}
+
+@keyframes round {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*---------- INVENTORY ----------*/
+
+.inventory .maincont {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 75vw;
+  height: 48vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--inventory-background);
+  background: var(--ui-background);
+  border-width: 0.11vw;
+  border-style: solid;
+  border-image: linear-gradient(
+      to top right,
+      transparent,
+      var(--main-clr),
+      transparent
+    )
+    1;
+}
+
+.maincont .inventar {
+  width: 40vw;
+  height: 100%;
+}
+
+.maincont .trenner {
+  width: 0.1vw;
+  background: linear-gradient(
+    0deg,
+    transparent 0%,
+    var(--main-clr),
+    transparent 100%
+  );
+  height: 100%;
+  z-index: -1;
+}
+
+.maincont .lagers {
+  width: 40vw;
+  height: 100%;
+}
+
+.maincont .boxcontent {
+  position: relative;
+  height: 80%;
+  top: 2vw;
+  overflow: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: flex-start;
+  justify-content: center;
+  padding-top: 1vw;
+}
+
+.maincont .box {
+  padding: 1vw;
+  padding-right: 2vw;
+  padding-left: 2vw;
+  background-color: var(--inventory-box-background);
+  border: 0.1vw solid var(--main-clr);
+  margin: 0.6vw;
+  border-radius: 0 1vw 0 1vw;
+}
+
+.lagers .box {
+  border-radius: 1vw 0 1vw 0;
+}
+
+.box .flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.lagers #itemcount {
+  position: absolute;
+  margin-left: 3vw;
+  margin-top: -0.6vw;
+  color: white;
+  padding: 0.15vw;
+  padding-left: 0.5vw;
+  padding-right: 0.5vw;
+  text-align: center;
+  background-color: var(--inventory-itemcount-background);
+  color: rgb(255, 255, 255);
+  border-radius: 0.2vw;
+  font-weight: 600;
+  font-size: 0.65vw;
+  margin-right: 0.3vw;
+}
+
+.inventar #itemcount {
+  position: absolute;
+  margin-top: -0.6vw;
+  margin-left: -1.5vw;
+  color: white;
+  padding: 0.15vw;
+  padding-left: 0.5vw;
+  padding-right: 0.5vw;
+  text-align: center;
+  background-color: var(--inventory-itemcount-background);
+  color: rgb(255, 255, 255);
+  border-radius: 0.2vw;
+  font-weight: 600;
+  font-size: 0.65vw;
+  margin-right: 0.3vw;
+}
+
+.maincont #itemname {
+  color: rgba(255, 255, 255, 0.722);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.7vw;
+  margin-bottom: 0.4vw;
+}
+
+.maincont .itemimg {
+  width: 2vw;
+  height: 2vw;
+  object-fit: contain;
+}
+
+.maincont .itemheadline {
+  color: white;
+  font-size: 0.6vw;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.inventar .headline {
+  color: rgba(255, 255, 255, 0.423);
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 1vw;
+  padding: 0.6vw;
+  border-left: 0.3vw solid var(--main-clr);
+}
+
+.lagers .headline {
+  color: rgba(255, 255, 255, 0.423);
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 1vw;
+  padding: 0.6vw;
+  border-right: 0.3vw solid var(--main-clr);
+}
+
+.lagers .headlinebox {
+  position: relative;
+  top: 1.3vw;
+  padding-right: 1vw;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  color: white;
+}
+
+.inventar .headlinebox {
+  position: relative;
+  top: 1.3vw;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  color: white;
+  padding-left: 1vw;
+}
+
+.lagerinfo {
+  color: rgba(255, 255, 255, 0.423);
+  font-weight: 700;
+  margin-top: 0.5vw;
+}
+
+#info {
+  color: white;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.boxsetting {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1vw;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  border: 2px solid var(--main-clr);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--inventory-settings-background);
+  box-shadow: 0 0 411vw var(--main-clr);
+}
+
+.boxsetting .headlineb {
+  color: rgba(255, 255, 255, 0.591);
+  white-space: nowrap;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 0.6vw;
+}
+
+.boxsetting2 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1vw;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  border: 2px solid var(--main-clr);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--inventory-settings-background);
+  box-shadow: 0 0 411vw var(--main-clr);
+}
+
+.boxsetting2 .headlineb {
+  color: rgba(255, 255, 255, 0.591);
+  white-space: nowrap;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 0.6vw;
+}
+
+.maincont input {
+  background-color: rgba(0, 0, 0, 0.415);
+  text-align: center;
+  padding: 0.7vw;
+  margin: 0.8vw;
+  width: 12vw;
+  color: rgb(231, 231, 231);
+  font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 0.2vw;
+  font-size: 0.6vw;
+}
+
+.maincont .transfer {
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  width: 19vw;
+  padding: 0.6vw;
+  font-size: 0.7vw;
+  background-color: var(--inventory-button-background);
+  border: 0.1vw solid transparent;
+  border-radius: 0.2vw;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 700;
+  transition: 0.2s;
+  cursor: pointer;
+  z-index: 22222;
+}
+
+.close {
+  position: absolute;
+  cursor: pointer;
+  padding: 0.4vw;
+  padding-top: 0.2vw;
+  padding-bottom: 0.2vw;
+  text-align: center;
+  background-color: var(--main-clr);
+  border-radius: 0.3vw;
+  right: 0.4vw;
+  top: 0.6vw;
+}
+
+.maincont button:hover {
+  border: 0.1vw solid transparent;
+  background-color: var(--main-clr);
+  color: white;
+  text-shadow: 0 0 1vw white;
+}

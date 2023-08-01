@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Envy Services</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="./js/app.js" defer></script>
+</head>
+<body>
+
+    <div class="buymenu" style="display: none;">
+        <div class="headlinecont">
+            <span class="headline1" style="color: blue; text-shadow: 0 0 1vw blue;">Envy Services</span>
+            <span class="headline2" style="font-size: 1vw;">Lagersystem</span>
+        </div>
+        <ul> 
+            <li onclick="showBuy()">Kaufen</li>
+            <li onclick="showLogin()">Login</li>
+        </ul>
+ 
+        <div class="mainpage buypage">
+            <div class="boxcont"> 
+                <div class="box">
+                    <img src="images/lager1.png" alt=""> 
+                    <span class="informationheadline">Informationen</span>
+                    <div class="lagerbox">
+                        <span>Name:</span>
+                        <span id="smalllagername">Kleines Lager</span>  
+                    </div>
+                    <div class="preisbox">
+                        <span>Preis:</span>
+                        <span id="smalllagerprice">50.000$</span>
+                    </div>
+                    <span class="aktionenheadline">Aktionen</span>
+                    <button onclick="showLager1()">auswählen</button>
+                </div>
+                <div class="box">
+                    <img src="images/lager2.png" alt="">
+                    <span class="informationheadline">Informationen</span>
+                    <div class="lagerbox">
+                        <span>Name:</span>
+                        <span id="middlelagername">Mittleres Lager</span>
+                    </div>
+                    <div class="preisbox">
+                        <span>Preis:</span>
+                        <span id="middlelagerprice">300.000$</span>
+                    </div>
+                    <span class="aktionenheadline">Aktionen</span>
+                    <button onclick="showLager2()">auswählen</button>
+                </div>
+                <div class="box">
+                    <img src="images/lager3.png" alt="">
+                    <span class="informationheadline">Informationen</span>
+                    <div class="lagerbox">
+                        <span>Name:</span>
+                        <span id="biglagername">Großes Lager</span>
+                    </div>
+                    <div class="preisbox">
+                        <span>Preis:</span>
+                        <span id="biglagerprice">600.000$</span>
+                    </div>
+                    <span class="aktionenheadline">Aktionen</span>
+                    <button onclick="showLager3()">auswählen</button>
+                </div>
+            </div>
+        </div>
+        <span class="loader"></span>
+
+        <div class="mainpage lager1" style="display: none;">
+            <div class="lager">
+                <img src="images/lager1.png" alt="">
+                <span class="headline" id="smalllagername">Kleines Lager</span>
+                <div class="preisbox">
+                    <span>Preis: <span id="smalllagerprice">50.000$</span></span>
+                </div>
+                <input type="password" placeholder="Pin" id="smallPin"></input>
+                <button id="buylager1" onclick="buySmall()">Kaufen</button>
+            </div>
+        </div>
+
+        <div class="mainpage lager2" style="display: none;">
+            <div class="lager">
+                <img src="images/lager2.png" alt="">
+                <span class="headline" id="middlelagername">Mittleres Lager</span>
+                <div class="preisbox">
+                    <span>Preis: <span id="middlelagerprice">300.000$</span></span>
+                </div>
+                <input type="password" placeholder="Pin" id="mediumPin"></input>
+                <button id="buylager1" onclick="buyMedium()" >Kaufen</button>
+            </div>
+        </div>
+
+        <div class="mainpage lager3" style="display: none;">
+            <div class="lager">
+                <img src="images/lager2.png" alt="">
+                <span class="headline" id="biglagername">Großes Lager</span>
+                <div class="preisbox">
+                    <span>Preis: <span id="biglagerprice">600.000$</span></span>
+                </div>
+                <input type="password" placeholder="Pin" id="bigPin"></input>
+                <button id="buylager1" onclick="buyBig()">Kaufen</button>
+            </div>
+        </div>
+
+        <div class="mainpage success" style="display: none;">
+
+            <div class="page">
+                <span class="headline">Success</span>
+                <span class="info">Du hast dein Lager erfolgreich gekauft. Nun kannst du direkt loslegen!</span>
+
+                <div class="buttoncont">
+                    <button onclick="showBuy()">Zurück</button>
+                    <button onclick="showLogin()">Zum Lager</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mainpage loginpage" style="display: none;">
+        
+            <div class="page">
+                <span class="headline">Dein Lager</span>
+                <span class="verwaltentxt">Verwalten</span>
+                <div class="boxconte">
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="mainpage verwaltenpage" style="display: none;">
+        
+            <div class="page">
+                <span class="headline">Lager verwalten</span>
+                <div class="lagerbox">
+                    <span class="lagername">Name:</span> 
+                    <span class="lagername" id="aaaaaaaaaaaaaaaaa">kleines Lager</span>
+                </div>
+                <div class="lagerbox">
+                    <span class="lagerprice">Gezahlt:</span>
+                    <span class="lagerprice" id="bbbbbbbbbbbbb">50.000$</span>
+                </div>
+                <div class="changecont">
+                    <div class="pin"> 
+                        <span class="lagerpin">Pin ändern</span> 
+                        <input type="password" id="changepin" placeholder="Pin ändern">
+                        <input type="password" class="secPin" id="changepin" placeholder="Pin bestätigen">
+                        <button class="changebtn" onclick="changePin()">Ändern</button>
+                    </div>
+                    <div class="sell">
+                        <span class="lagersell">Verkaufen</span>
+                        <input type="password" class="pinsav" id="changepin" placeholder="Pin eingeben">
+                        <input type="password" class="monkeySeller" disabled placeholder="Verkaufspreis: 30.000$">
+                        <button class="sellbtn" onclick="sellWarehouse()">Verkaufen</button>
+                    </div> 
+                </div>
+            </div> 
+        </div> 
+
+        <div class="mainpage betretenpage" style="display: none;">
+            <div class="betre">
+                <span class="headline">Lager betreten</span>
+                <span class="info">Um dein Lager betreten zu können, musst du aus Sicherheitsgründen dein Lagerpasswort angeben. Solltest du dein Passwort vergessen haben, kannst du es Verwalten-Tab ändern.</span>
+                <input type="password" class="babyJoiner" placeholder="Passwort eingeben"></input>
+                <button onclick="enterWarehouse()">betreten</button>
+            </div>
+        </div> 
+    </div>
+
+    <div class="inventory" style="display: none;">
+        <div class="maincont">
+            <div class="inventar">
+                <div class="headlinebox"> 
+                    <span class="headline">Dein Inventar</span>
+                    <span class="lagerinfo">Inventar Items</span>
+                </div>
+                <div class="boxcontent" id="yallah">
+                    
+                </div>
+            </div>
+ 
+            <div class="trenner">
+
+            </div>  
+
+            <div class="lagers">
+                <div class="headlinebox">
+                    <span class="headline">Dein Lager</span>
+                    <span class="lagerinfo">Kapazität <span id="info">0/0</span></span>
+                </div>
+                <div class="boxcontent" id="invappend">
+
+                </div> 
+            </div> 
+            <div class="boxsetting" style="display: none;">
+                <span class="headlineb">Wie viel möchtest du transferen?<span class="close" onclick="closeSetting()">x</span></span>
+                <input id="lalibala" type="number" placeholder="Anzahl">
+                <button class="transfer" id="yolo" onclick="transfer()">Transfer</button>
+            </div>
+             <div class="boxsetting2" id="yau" style="display: none;">
+                <span class="headlineb">Wie viel möchtest du transferen?<span class="close" onclick="closeSetting()">x</span></span>
+                <input id="lalibala2" type="number" placeholder="Anzahl">
+                <button class="transfer" id="yolo" onclick="transfer_out()">Transfer</button>
+            </div>  
+        </div>    
+
+    </div>    
+     
+</body>   
+</html>
